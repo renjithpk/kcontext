@@ -1,6 +1,6 @@
 
 class KContextManager:
-    def get_kube_contexts(self):
+    def get(self):
         # Provide predefined list of contexts for testing
         return ['central-prod-red',
                 'central-prod-green',
@@ -16,6 +16,6 @@ class KContextManager:
                 'east-test-green']
 
 
-    def set_kube_context(self, context):
+    def set(self, context):
         # Print a message for testing purposes
         print(f"Setting context to: {context}")
