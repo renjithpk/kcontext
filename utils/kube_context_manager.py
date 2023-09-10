@@ -15,3 +15,34 @@ class KContextManager:
             return None  # No error message
         except subprocess.CalledProcessError as e:
             return str(e)
+
+# A Stub class for validation
+class StubKContextManager:
+    def get(self):
+        # Provide predefined list of contexts for testing
+        return [
+            'my-cluster-prod',
+            'my-cluster-dev',
+            'my-cluster-test',
+            'another-cluster-prod',
+            'another-cluster-dev',
+            'another-cluster-test',
+            'staging-cluster-prod',
+            'staging-cluster-dev',
+            'staging-cluster-test',
+            'production-cluster',
+            'development-cluster',
+            'test-cluster',
+            'main-cluster-prod',
+            'main-cluster-dev',
+            'main-cluster-test',
+            'west-cluster-prod',
+            'west-cluster-dev',
+            'west-cluster-test',
+            'east-cluster-prod',
+            'east-cluster-dev',
+            'east-cluster-test',
+        ]
+    def set(self, context):
+        # Print a message for testing purposes
+        print(f"Setting context to: {context}")

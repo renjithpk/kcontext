@@ -61,4 +61,4 @@ class ContextTags:
         return max_len
     
     def sorted_contexts(self):
-        return sorted(self.contexts.keys(), key=lambda x: "".join(self.contexts[x][1]))
+        return sorted(self.contexts.keys(), key=lambda x: "".join(self.contexts[x]))
