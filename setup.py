@@ -3,7 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name='kcontext',
     version='0.1.0',
-    py_modules=['kcontext'],
+    py_modules=['kcontext', 'utils'],
+    packages=find_packages(),
     entry_points={
         'console_scripts': [
             'kcontext=kcontext:main',
