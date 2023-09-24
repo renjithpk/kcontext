@@ -10,16 +10,19 @@ class ContextTags:
     
     def load_tags_from_env(self):
         # Access the environment variable for configuration
-        tag_json = os.environ.get('K_CONTEXT_TAGS_JSON')
+        tag_str = os.environ.get('K_CONTEXT_TAGS')
 
-        # Parse the JSON string to obtain the configuration as a dictionary
-        if tag_json:
+        # Parse the comma-separated string to obtain the configuration as a dictionary
+        if tag_str:
             try:
-                config = json.loads(tag_json)
-                included_tags = config.get('included_tags', {})
+                included_tags = {}
+                tag_pairs = tag_str.split(',')
+                for pair in tag_pairs:
+                    key, value = pair.split('=')
+                    included_tags[key.strip()] = value.strip()
                 return included_tags
-            except json.JSONDecodeError as e:
-                print(f"Error parsing JSON tag information \n    K_CONTEXT_TAGS_JSON={tag_json}")
+            except ValueError as e:
+                print(f"Error parsing tag information from environment variable K_CONTEXT_TAGS: {tag_str}")
                 print(f"{e}")
                 exit(1)
         # Use default or empty configuration if environment variable is not set or parsing fails
