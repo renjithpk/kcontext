@@ -8,33 +8,25 @@
 
 - **Color-Coded Tags**: To enhance visibility and distinction, kcontext color-codes the tags. Tags are displayed in the order they are defined, providing a clear visual hierarchy for your contexts.
 
-- **Customizable Tagging**: You have the flexibility to customize the tagging to suit your preferences. By setting the `K_CONTEXT_TAGS_JSON` environment variable with your preferred key-value pairs in JSON format, you can tailor the tagging system to your specific needs.
+## Customizable Tagging
 
-    Example:
-    ```bash
-    export K_CONTEXT_TAGS_JSON='{
-        "production": "[prod]",
-        "development": "[dev]",
-        "west": "[west]",
-        "central": "[cent]"
-    }'
-    ```
+You have the flexibility to customize the tagging to suit your preferences. By setting the `K_CONTEXT_TAGS` environment variable with your preferred key-value pairs in a comma-separated format, you can tailor the tagging system to your specific needs.
 
-    If you don't set the `K_CONTEXT_TAGS_JSON` environment variable, kcontext will use a default tag map that includes common tags like `[prod]` for production, `[dev]` for development, and others to represent different context types.
+### Example
+
+```bash
+export K_CONTEXT_TAGS="production=[prod],development=[dev],west=[west],central=[cent]"
+```
+
+If you don't set the K_CONTEXT_TAGS environment variable, kcontext will use a default tag map that includes common tags like [prod] for production, [dev] for development, and others to represent different context types.
 
 ## Usage
 
-1. **Installation**: To start using kcontext, you need to install it on your system. You can do this by following the installation instructions in the [installation guide](INSTALL.md).
+1. **Installation**: 
+```bash
+pip install git+https://github.com/renjithpk/kcontext.git
+```
 
-2. **Configuration**: Customize your context tagging by setting the `K_CONTEXT_TAGS_JSON` environment variable as shown in the example above.
 
 3. **Select Context**: Once installed and configured, simply run `kcontext` to see your list of Kubernetes contexts with tags. Use the displayed tags to quickly identify and choose the context you want.
-
-## Contributions
-
-We welcome contributions to kcontext. If you have ideas for improvements or encounter issues, please feel free to open an issue or submit a pull request on our [GitHub repository](https://github.com/your-repo-link).
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 

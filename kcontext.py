@@ -66,17 +66,15 @@ def display_contexts(stdscr, context_manager):
 def main():
     description = '''kcontext is a versatile tool for selecting Kubernetes contexts with ease.
     It simplifies context selection by using tags based on context names, making it quick to identify and choose the context you want.
-      When a key from a map is found in the context, its corresponding value is shown as a tag before each context name.
+    When a key from a map is found in the context, its corresponding value is shown as a tag before each context name.
     These tags are color-coded for distinction and displayed in the order they are defined. The list of contexts is sorted based on these tags, not their names.
-    You can customize the tagging by setting the K_CONTEXT_TAGS_JSON environment variable with your preferred key-value pairs in JSON format.
-    example:\n
-    export K_CONTEXT_TAGS_JSON='{\n
-        "production": "[prod]",\n
-        "development": "[dev]",\n
-        "west": "[west]",\n
-        "central": "[cent]",\n
-    }'\n\n
-    If K_CONTEXT_TAGS_JSON is not set, kcontext uses a default tag map, including tags like [prod] for production, [dev] for development, and others for different context types.
+
+    You can customize the tagging by setting the K_CONTEXT_TAGS environment variable with your preferred key-value pairs in a comma-separated format.
+
+    Example:
+    export K_CONTEXT_TAGS="production=[prod],development=[dev],west=[west],central=[cent]"
+
+    If K_CONTEXT_TAGS is not set, kcontext uses a default tag map, including tags like [prod] for production, [dev] for development, and others for different context types.
     '''
 
     argparse.ArgumentParser(
