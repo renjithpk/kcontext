@@ -4,7 +4,7 @@ class KContextManager:
     def get(self):
         try:
             output = subprocess.check_output(['kubectl', 'config', 'get-contexts', '-o=name'], stderr=subprocess.STDOUT, text=True)
-            contexts = output.strip().split('\n')[1:]  # Skip the header line
+            # contexts = output.strip().split('\n')[1:]  # Skip the header line
             return contexts
         except subprocess.CalledProcessError:
             return []
